@@ -68,6 +68,12 @@ class _FirstPageState extends State<FirstPage> {
             const SizedBox(
               height: 20,
             ),
+            ElevatedButton(
+              onPressed: () {
+                print("Pressed");
+              },
+              child: const Icon(Icons.qr_code_rounded),
+            ),
           ],
         ),
       ),
