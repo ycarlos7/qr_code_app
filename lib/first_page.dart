@@ -35,7 +35,7 @@ class _FirstPageState extends State<FirstPage> {
           left: 40,
           right: 40,
         ),
-        child: ListView(
+        child: Column(
           children: [
             const SizedBox(
               height: 10,
@@ -50,6 +50,23 @@ class _FirstPageState extends State<FirstPage> {
                     fontSize: 20),
               ),
               style: const TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              autofocus: true,
+              decoration: const InputDecoration(
+                labelText: "Senha da rede",
+                labelStyle: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20),
+              ),
+              style: const TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            const SizedBox(
+              height: 20,
             ),
           ],
         ),
