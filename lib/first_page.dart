@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import 'package:share/share.dart';
 
 class FirstPage extends StatefulWidget {
-  const FirstPage({Key? key, String? title}) : super(key: key);
+  const FirstPage({Key? key, required String title}) : super(key: key);
 
   @override
   _FirstPageState createState() => _FirstPageState();
 }
 
 class _FirstPageState extends State<FirstPage> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController textController = TextEditingController();
+  String data = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +48,7 @@ class _FirstPageState extends State<FirstPage> {
             ),
             TextFormField(
               autofocus: true,
+              controller: nameController,
               decoration: const InputDecoration(
                 labelText: "Nome da rede",
                 labelStyle: TextStyle(
@@ -56,6 +63,7 @@ class _FirstPageState extends State<FirstPage> {
             ),
             TextFormField(
               autofocus: true,
+              controller: textController,
               decoration: const InputDecoration(
                 labelText: "Senha da rede",
                 labelStyle: TextStyle(
@@ -69,10 +77,23 @@ class _FirstPageState extends State<FirstPage> {
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () {
-                print("Pressed");
+              onPressed: () async {
+                setState(() {
+                  data = "${nameController.text} ${textController.text}";
+                });
               },
               child: const Icon(Icons.qr_code_rounded),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            QrImage(
+              data: data,
+              version: QrVersions.auto,
+              size: 150,
+            ),
+            const SizedBox(
+              height: 20,
             ),
           ],
         ),
