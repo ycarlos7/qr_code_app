@@ -79,7 +79,8 @@ class _FirstPageState extends State<FirstPage> {
             ElevatedButton(
               onPressed: () async {
                 setState(() {
-                  data = "${nameController.text} ${textController.text}";
+                  data =
+                      "Nome da rede: ${nameController.text} Senha da rede: ${textController.text}";
                 });
               },
               child: const Icon(Icons.qr_code_rounded),
@@ -94,6 +95,15 @@ class _FirstPageState extends State<FirstPage> {
             ),
             const SizedBox(
               height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Share.share(
+                  data =
+                      "Nome da rede: ${nameController.text} Senha da rede: ${textController.text}",
+                );
+              },
+              child: const Icon(Icons.share),
             ),
           ],
         ),
