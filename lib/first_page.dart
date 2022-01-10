@@ -17,6 +17,7 @@ class _FirstPageState extends State<FirstPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Row(
@@ -91,7 +92,7 @@ class _FirstPageState extends State<FirstPage> {
             QrImage(
               data: data,
               version: QrVersions.auto,
-              size: 150,
+              size: 140,
             ),
             const SizedBox(
               height: 20,
